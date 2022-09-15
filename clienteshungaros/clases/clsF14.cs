@@ -11,7 +11,7 @@ namespace clienteshungaros.clases
     {
 
         public static string strConnction = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        /*
+       
         public static string Insertar_info_compania(string ID_compania, string nombre_comp, string nombre_comercial, int tipo_persona, string rfc, string CURP, int tiempo_negocio, string direccion, string cp, string pais, string estado, string ciudad, string fecha_registro, string id_user)
         {
             
@@ -611,7 +611,7 @@ namespace clienteshungaros.clases
 
             return resultado;
         }
-        */
+        
     }
 
 }
