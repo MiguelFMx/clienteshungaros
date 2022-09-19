@@ -73,8 +73,8 @@
         </div>
 
     </form>
-    <script src="Scripts/jquery-3.6.0.min.js"></script>
-    <script src="Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../Scripts/jquery-3.6.0.min.js"></script>
+    <script src="../../Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
     <asp:ContentPlaceHolder ID="Scriptcontent" runat="server">

@@ -16,7 +16,32 @@ namespace clienteshungaros.user
         HttpCookie cook;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+                getCompania();
+                if (dt.Rows.Count > 0)
+                {
+                    lblCompania.Text = dt.Rows[0]["Nombre_comercial"].ToString();
+                    cook = new HttpCookie("id_comp", dt.Rows[0]["ID_compania"].ToString());
+                    Response.Cookies.Add(cook);
+                    try
+                    {
+
+                        Documentos();
+                        prueba.Text = User.Identity.Name;
+                    }
+                    catch (Exception ex)
+                    {
+                        lblError.Text = ex.Message;
+
+                    }
+                }
+                else
+                {
+                   // Response.Redirect("../F20/CriteriosMinimos.aspx");
+                }
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -46,12 +71,13 @@ namespace clienteshungaros.user
 
         protected void getCompania()
         {
+            wsBaseDatos wsBaseDatos = new wsBaseDatos();
             //ClientesNuevos.F14.wsBaseDatos wsBaseDatos = new ClientesNuevos.F14.wsBaseDatos();
             dt = new DataTable();
 
 
             string id_user = Request.Cookies.Get("id").Value;
-            //dt = wsBaseDatos.getCompania(id_user);
+           dt = wsBaseDatos.getCompania(id_user);
 
 
         }
